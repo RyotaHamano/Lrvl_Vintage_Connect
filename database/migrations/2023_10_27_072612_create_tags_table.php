@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 20);
+            $table->boolean('is_available');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
