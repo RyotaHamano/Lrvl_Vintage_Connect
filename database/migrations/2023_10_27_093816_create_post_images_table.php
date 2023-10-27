@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('post_images', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('post_item_id')->constrained('post_items')->onDelete('cascade');
+            $table->string('post_image_path');
             $table->timestamps();
         });
     }
