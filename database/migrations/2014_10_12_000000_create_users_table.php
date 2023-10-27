@@ -19,6 +19,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('most_favorite');
+            $table->string('introduction', 100);
+            $table->boolean('is_admission');
+            $table->integer('deleted_post_items');
+            $table->integer('deleted_comments');
+            $table->integer('disabled_tags');
+            $table->boolean('is_admin');
+            $table->string('user_image_path');
             $table->rememberToken();
             $table->timestamps();
         });
