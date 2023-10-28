@@ -21,6 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'most_favorite',
+        'introduction',
+        'is_admission',
+        'deleted_post_items',
+        'deleted_comments',
+        'disabled_tags',
+        'is_admin',
+        'user_image_path'
     ];
 
     /**
@@ -41,4 +49,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function post_items(){
+        return $this->hasMany(PostItem::Class);
+    }
+    
+    public function tags(){
+        return $this->hasMany(Tag::Class);
+    }
+    
+    public function comments(){
+        return $this->hasMany(Comment::Class);
+    }
+    
+    public function followings(){
+        return $this->belongsToMany(User::Class, 'relationships', 'followed_id', 'follow_id');
+    }
+    
+    //フォロワー取得
+    public function followers(){
+        return $this->belongsToMany(User::Class, 'relationships', 'follow_id', 'followed_id');
+    }
+
 }

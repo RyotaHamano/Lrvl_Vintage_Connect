@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('relationships', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('follow_id');
-            $table->foreignId('followed_id');
+            $table->foreignId('follow_id'); //フォローする人のid
+            $table->foreignId('followed_id'); //フォローされる人のid
             $table->timestamps();
         });
     }
