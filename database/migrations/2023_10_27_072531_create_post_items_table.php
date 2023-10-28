@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('post_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->string('prefecture');
             $table->string('address');
             $table->string('shop_name', 20);
